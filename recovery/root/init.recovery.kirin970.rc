@@ -5,3 +5,6 @@ service fixlinks /sbin/fixlinks.sh
     oneshot
     disabled
     seclabel u:r:recovery:s0
+
+service oeminfo_nvm /sbin/true
+    disabled
