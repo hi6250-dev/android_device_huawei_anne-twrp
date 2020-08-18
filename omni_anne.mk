@@ -14,12 +14,6 @@
 # limitations under the License.
 #
 
-# Sample: This is where we'd set a backup provider if we had one
-# $(call inherit-product, device/sample/products/backup_overlay.mk)
-
-# Get the prebuilt list of APNs
-$(call inherit-product, vendor/omni/config/gsm.mk)
-
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
@@ -27,20 +21,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
-PRODUCT_PACKAGES += \
-    charger_res_images \
-    charger
-
 PRODUCT_COPY_FILES += \
-    device/huawei/berkeley/dummykernel:kernel
+    device/huawei/anne/dummykernel:kernel
 
-PRODUCT_NAME := omni_berkeley
-PRODUCT_DEVICE := berkeley
+PRODUCT_NAME := omni_anne
+PRODUCT_DEVICE := anne
 PRODUCT_BRAND := Huawei
-PRODUCT_MODEL := Honor View 10
+PRODUCT_MODEL := P20 Lite
 PRODUCT_MANUFACTURER := Huawei
-
-# Kernel inline build
-#TARGET_KERNEL_CONFIG := berkeley_defconfig
-#TARGET_VARIANT_CONFIG := berkeley_defconfig
-#TARGET_SELINUX_CONFIG := berkeley_defconfig
