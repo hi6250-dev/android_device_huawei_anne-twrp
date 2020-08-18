@@ -48,8 +48,6 @@ TW_NO_SCREEN_BLANK := true
 TW_USE_TOOLBOX := true
 TW_DEFAULT_BRIGHTNESS := "2048"
 TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/Battery
-# MTP will not work until we update it to support ffs
-TW_EXCLUDE_MTP := true
 TARGET_USES_LOGD := true
 TWRP_INCLUDE_LOGCAT := true
 TW_USE_NEW_MINADBD := true
