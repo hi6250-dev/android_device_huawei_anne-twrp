@@ -1,0 +1,18 @@
+# MTP
+sys.usb.config=hisuite,mtp,mass_storage,adb
+sys.usb.state=hisuite,mtp,mass_storage,adb
+
+# Sd Card
+persist.sys.sdcardfs.emulated=1
+persist.sys.sdcardfs.public=1
+ro.sys.sdcardfs=1
+
+# Selinux
+ro.build.selinux=1
+
+# Treble
+ro.treble.enabled=true
+
+# Additional props
+ro.zygote=zygote64_32
+
