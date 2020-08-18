@@ -26,7 +26,10 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 
 # Kernel
+BOARD_KERNEL_BASE := 0x10000000
+BOARD_KERNEL_PAGESIZE := 2048
 BOARD_CUSTOM_BOOTIMG_MK := device/huawei/anne/custombootimg.mk
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x8000 --ramdisk_offset 0x01000000 --tags_offset 0x0100
 
 # File System
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
