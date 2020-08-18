@@ -17,7 +17,7 @@
 # Kernel
 PRODUCT_COPY_FILES += \
     device/huawei/anne/dummykernel:kernel
-
+	
 # Usb
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.secure=0 \
