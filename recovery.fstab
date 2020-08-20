@@ -1,19 +1,24 @@
-/kernel            emmc      /dev/block/bootdevice/by-name/kernel            flags=display="Kernel";backup=1
-/ramdisk           emmc      /dev/block/bootdevice/by-name/ramdisk           flags=display="Boot Ramdisk";backup=1
-/recovery_ramdisk  emmc      /dev/block/bootdevice/by-name/recovery_ramdisk  flags=display="Recovery Ramdisk";backup=1
-/cache             ext4      /dev/block/bootdevice/by-name/cache
-/cust              ext4      /dev/block/bootdevice/by-name/cust              flags=display="Cust";backup=1
-/misc              emmc      /dev/block/bootdevice/by-name/misc              flags=display="Misc";backup=0
-/oeminfo           emmc      /dev/block/bootdevice/by-name/oeminfo           flags=display="OEMinfo";backup=1
-/data              f2fs      /dev/block/bootdevice/by-name/userdata
-/system            ext4      /dev/block/bootdevice/by-name/system
-/system_image      emmc      /dev/block/bootdevice/by-name/system
-/vendor            ext4      /dev/block/bootdevice/by-name/vendor
-/vendor_image      emmc      /dev/block/bootdevice/by-name/vendor
-/external_sd       vfat      /dev/block/mmcblk1p1  /dev/block/mmcblk1        flags=display="MicroSD Card";storage;wipeingui;removable
-#/usbotg            auto     /dev/block/sda1         /dev/block/sda          flags=display="USB OTG";storage;removable;backup=0
-#/devices/hi_mci.1/mmc_host/mmc1/*                       auto                auto      defaults                                      flags=display="MicroSD Card";storage;wipeingui;removable
-#/devices/platform/hi_mci.1/mmc_host/mmc1/*                       auto                auto      defaults                                      flags=display="MicroSD Card";storage;wipeingui;removable
-/devices/ff200000.hisi_usb/ff100000.dwc3/*              auto                auto      defaults                                      flags=display="USB OTG";storage;removable;backup=0
-/devices/platform/ff200000.hisi_usb/ff100000.dwc3/*     auto                auto      defaults                                      flags=display="USB OTG";storage;removable;backup=0
-/devices/platform/e7f00000.hifi_usb/*     auto                auto      defaults                                      flags=display="USB OTG";storage;removable;backup=0
+# System partitions
+/cache			ext4	/dev/block/platform/hi_mci.0/by-name/cache		flags=backup=1
+/cust			ext4	/dev/block/platform/hi_mci.0/by-name/cust		flags=backup=1
+/data			f2fs	/dev/block/platform/hi_mci.0/by-name/userdata		flags=backup=1;encryptable=footer
+/odm			ext4	/dev/block/platform/hi_mci.0/by-name/odm		flags=backup=1
+/product		ext4	/dev/block/platform/hi_mci.0/by-name/product		flags=backup=1
+/system                 ext4	/dev/block/platform/hi_mci.0/by-name/system		flags=backup=1
+/system_image		emmc	/dev/block/platform/hi_mci.0/by-name/system		flags=backup=1;display="System Image";flashimg
+/vendor			ext4	/dev/block/platform/hi_mci.0/by-name/vendor		flags=backup=1
+/vendor_image		emmc	/dev/block/platform/hi_mci.0/by-name/vendor		flags=backup=1;display="Vendor Image";flashimg
+/version		ext4	/dev/block/platform/hi_mci.0/by-name/version		flags=backup=1
+/kernel			emmc	/dev/block/platform/hi_mci.0/by-name/kernel		flags=backup=1;flashimg
+/ramdisk		emmc	/dev/block/platform/hi_mci.0/by-name/ramdisk		flags=backup=1;flashimg
+
+# Recovery partitions
+/recovery_ramdisk	emmc	/dev/block/platform/hi_mci.0/by-name/recovery_ramdisk	flags=backup=1;flashimg
+
+# Protected partitions
+/oeminfo		emmc    /dev/block/platform/hi_mci.0/by-name/oeminfo		flags=backup=1;flashimg
+/splash2		ext4	/dev/block/platform/hi_mci.0/by-name/splash2		flags=backup=1
+
+# External storage
+/external_sd		auto	/dev/block/mmcblk1p1  /dev/block/mmcblk1		flags=display="Micro SDcard";storage;wipeingui;removable
+/usb-otg		auto	/dev/block/sda1 /dev/block/sda				flags=display="USB-OTG";storage;wipeingui;removable
